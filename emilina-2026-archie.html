@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMILINA'S 2026 — The Stars Have Spoken, Girlfriend!</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Patrick+Hand&family=Boogaloo&family=Comic+Neue:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8192C;
+    --yellow: #FFD700;
+    --blue: #0057A8;
+    --black: #1a1a1a;
+    --white: #FFFDF5;
+    --orange: #FF6B00;
+    --green: #2E8B3A;
+    --pink: #FF69B4;
+    --cream: #FFF8E7;
+    --dot-color: rgba(0,87,168,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Patrick Hand', cursive;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23E8192C' stroke='%231a1a1a' stroke-width='2'/%3E%3C/svg%3E") 10 10, crosshair;
+  }
+
+  /* BEN-DAY DOT PATTERN */
+  .dots-bg {
+    background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+
+  /* THICK BLACK BORDERS — the Archie signature */
+  .panel-border {
+    border: 4px solid var(--black);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  /* ===== HERO / COVER ===== */
+  .hero {
+    background-color: var(--red);
+    border-bottom: 6px solid var(--black);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 60px;
+  }
+
+  /* Halftone dots on hero */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.08) 2px, transparent 2px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+
+  .comic-issue {
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    background: var(--yellow);
+    color: var(--black);
+    border: 3px solid var(--black);
+    padding: 4px 16px;
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+    display: inline-block;
+    box-shadow: 3px 3px 0 var(--black);
+  }
+
+  .hero-logo {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    letter-spacing: 0.4em;
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 var(--black);
+    margin-bottom: 10px;
+    -webkit-text-stroke: 1px var(--black);
+  }
+
+  .hero-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(4rem, 14vw, 10rem);
+    line-height: 0.85;
+    color: var(--white);
+    -webkit-text-stroke: 3px var(--black);
+    text-shadow: 5px 5px 0 var(--black);
+    text-align: center;
+    letter-spacing: 0.03em;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .hero-title .name-line {
+    color: var(--yellow);
+    display: block;
+    font-size: clamp(5rem, 18vw, 13rem);
+    -webkit-text-stroke: 4px var(--black);
+    text-shadow: 6px 6px 0 var(--black);
+    line-height: 0.8;
+  }
+
+  .hero-sub {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
+    color: var(--yellow);
+    -webkit-text-stroke: 1px var(--black);
+    text-shadow: 2px 2px 0 var(--black);
+    margin-top: 16px;
+    letter-spacing: 0.05em;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+  }
+
+  /* SPEECH BUBBLE */
+  .speech-bubble {
+    background: var(--white);
+    border: 4px solid var(--black);
+    border-radius: 20px;
+    padding: 16px 24px;
+    position: relative;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    max-width: 420px;
+    margin: 24px auto 0;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--black);
+    color: var(--black);
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 22px solid var(--black);
+  }
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 18px solid var(--white);
+    z-index: 1;
+  }
+
+  /* THOUGHT BUBBLE */
+  .thought-bubble {
+    background: var(--white);
+    border: 4px solid var(--black);
+    border-radius: 50%;
+    padding: 20px 30px;
+    position: relative;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1rem;
+    max-width: 380px;
+    margin: 30px auto;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--black);
+    color: var(--black);
+  }
+
+  /* EXCLAMATION BURST */
+  .burst {
+    display: inline-block;
+    background: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 8px 16px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    box-shadow: 3px 3px 0 var(--black);
+    color: var(--black);
+    transform: rotate(var(--rot, -2deg));
+    position: relative;
+  }
+
+  .starburst {
+    position: relative;
+    display: inline-block;
+    background: var(--yellow);
+    font-family: 'Bangers', cursive;
+    font-size: 1.3rem;
+    padding: 14px 20px;
+    color: var(--black);
+    border: 3px solid var(--black);
+    box-shadow: 3px 3px 0 var(--black);
+  }
+
+  /* ZAP / POW / WOW sound effects */
+  .sfx {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    -webkit-text-stroke: 3px var(--black);
+    line-height: 1;
+    display: inline-block;
+    transform: rotate(var(--rot, -8deg)) skew(var(--skew, -5deg));
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--blue);
+    border-bottom: 4px solid var(--black);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 0.2em;
+    color: var(--yellow);
+    -webkit-text-stroke: 1px var(--black);
+    text-shadow: 2px 2px 0 var(--black);
+  }
+
+  .nav-links {
+    display: flex; gap: 0; list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Bangers', cursive;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    text-decoration: none;
+    padding: 4px 12px;
+    border-right: 2px solid rgba(255,255,255,0.3);
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-links li:last-child a { border-right: none; }
+  .nav-links a:hover { background: var(--red); color: var(--yellow); }
+
+  /* ===== COMIC PANELS LAYOUT ===== */
+  .comic-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  /* PANEL GRID */
+  .panel-grid {
+    display: grid;
+    gap: 0;
+    border: 4px solid var(--black);
+  }
+
+  .panel-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .panel {
+    border: 3px solid var(--black);
+    padding: 24px 20px;
+    position: relative;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .panel.yellow-panel { background: var(--yellow); }
+  .panel.red-panel { background: var(--red); color: var(--white); }
+  .panel.blue-panel { background: var(--blue); color: var(--white); }
+  .panel.pink-panel { background: #FFE0EE; }
+  .panel.dots-panel { background: var(--white); }
+  .panel.dots-panel { 
+    background-image: radial-gradient(circle, rgba(232,25,44,0.15) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    background-color: var(--white);
+  }
+
+  .panel-label {
+    font-family: 'Bangers', cursive;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .panel h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1;
+    color: var(--black);
+    -webkit-text-stroke: 1px var(--black);
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .panel.red-panel h2, .panel.blue-panel h2 {
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 var(--black);
+  }
+
+  .panel p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--black);
+  }
+
+  .panel.red-panel p, .panel.blue-panel p { color: var(--white); }
+
+  /* BIG WIDE PANEL */
+  .panel-wide {
+    grid-column: 1 / -1;
+    background: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* CAPTION BOXES (Archie-style narration) */
+  .caption-box {
+    display: inline-block;
+    background: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 6px 14px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--black);
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+
+  .caption-box.blue { background: var(--blue); color: var(--white); }
+  .caption-box.red { background: var(--red); color: var(--white); }
+
+  /* ===== SATURN SECTION ===== */
+  .saturn-section {
+    background: var(--blue);
+    border-top: 6px solid var(--black);
+    border-bottom: 6px solid var(--black);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+  }
+
+  .saturn-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,215,0,0.12) 2px, transparent 2px);
+    background-size: 16px 16px;
+  }
+
+  .saturn-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .big-sfx-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(4rem, 12vw, 9rem);
+    color: var(--yellow);
+    -webkit-text-stroke: 4px var(--black);
+    text-shadow: 6px 6px 0 var(--black);
+    text-align: center;
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0;
+    border: 4px solid var(--yellow);
+    margin-top: 30px;
+  }
+
+  .stat-box {
+    border-right: 3px solid var(--yellow);
+    padding: 20px 16px;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+  }
+
+  .stat-box:last-child { border-right: none; }
+
+  .stat-val {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    color: var(--yellow);
+    display: block;
+    text-shadow: 2px 2px 0 var(--black);
+    -webkit-text-stroke: 1px var(--black);
+  }
+
+  .stat-label {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 0.75rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+  }
+
+  /* ===== MONTH CARDS ===== */
+  .months-section {
+    padding: 40px 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-banner {
+    background: var(--red);
+    border: 4px solid var(--black);
+    box-shadow: 6px 6px 0 var(--black);
+    padding: 16px 30px;
+    display: inline-block;
+    transform: rotate(-1deg);
+    margin-bottom: 40px;
+  }
+
+  .section-banner h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--yellow);
+    -webkit-text-stroke: 2px var(--black);
+    text-shadow: 3px 3px 0 var(--black);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .section-banner p {
+    font-family: 'Comic Neue', cursive;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--white);
+    font-size: 1rem;
+  }
+
+  .months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0;
+    border: 4px solid var(--black);
+  }
+
+  .month-card {
+    border: 3px solid var(--black);
+    background: var(--white);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.15s ease;
+  }
+
+  .month-card:hover {
+    z-index: 10;
+    transform: scale(1.02);
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  .month-card.active {
+    z-index: 20;
+    box-shadow: 8px 8px 0 var(--black);
+  }
+
+  .month-header {
+    padding: 20px 20px 16px;
+    border-bottom: 3px solid var(--black);
+    position: relative;
+  }
+
+  /* Alternate panel colors */
+  .month-card:nth-child(3n+1) .month-header { background: var(--red); }
+  .month-card:nth-child(3n+2) .month-header { background: var(--blue); }
+  .month-card:nth-child(3n+3) .month-header { background: var(--yellow); }
+
+  .month-num-tag {
+    font-family: 'Bangers', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.7);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .month-card:nth-child(3n+3) .month-num-tag { color: rgba(0,0,0,0.5); }
+
+  .month-name {
+    font-family: 'Bangers', cursive;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--white);
+    -webkit-text-stroke: 2px var(--black);
+    text-shadow: 3px 3px 0 var(--black);
+    letter-spacing: 0.03em;
+  }
+
+  .month-card:nth-child(3n+3) .month-name { color: var(--black); text-shadow: 2px 2px 0 rgba(0,0,0,0.3); -webkit-text-stroke: 1px var(--black); }
+
+  .month-vibe {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.85rem;
+    color: var(--white);
+    margin-top: 6px;
+    opacity: 0.9;
+  }
+
+  .month-card:nth-child(3n+3) .month-vibe { color: var(--black); opacity: 0.7; }
+
+  .month-body {
+    padding: 18px 20px;
+  }
+
+  .month-preview {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--black);
+  }
+
+  /* INTENSITY — styled as a comic "power meter" */
+  .power-meter {
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .power-label {
+    font-family: 'Bangers', cursive;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    white-space: nowrap;
+  }
+
+  .power-track {
+    flex: 1;
+    height: 14px;
+    background: #ddd;
+    border: 2px solid var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .power-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: var(--pct, 0%);
+    background: repeating-linear-gradient(
+      90deg,
+      var(--red) 0px,
+      var(--red) 8px,
+      var(--yellow) 8px,
+      var(--yellow) 10px
+    );
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+  }
+
+  .power-num {
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    color: var(--red);
+    -webkit-text-stroke: 0.5px var(--black);
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* MONTH DETAIL */
+  .month-detail {
+    display: none;
+    border-top: 3px solid var(--black);
+    background: #FFF9F0;
+    padding: 18px 20px;
+    animation: slideDown 0.25s ease;
+  }
+
+  .month-card.active .month-detail {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .month-detail p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--black);
+    margin-bottom: 14px;
+  }
+
+  .event-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .event-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--black);
+  }
+
+  .event-list li::before {
+    content: '★';
+    color: var(--red);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .event-date-tag {
+    background: var(--blue);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: 0.75rem;
+    padding: 1px 8px;
+    border: 2px solid var(--black);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    box-shadow: 1px 1px 0 var(--black);
+    white-space: nowrap;
+  }
+
+  .saturn-check-box {
+    background: var(--yellow);
+    border: 3px solid var(--black);
+    padding: 12px 14px;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    box-shadow: 3px 3px 0 var(--black);
+    color: var(--black);
+  }
+
+  .saturn-check-box strong {
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* CLICK TO READ MORE */
+  .read-more-hint {
+    font-family: 'Bangers', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(0,0,0,0.35);
+    text-align: right;
+    padding: 6px 20px 10px;
+    border-top: 1px dashed rgba(0,0,0,0.15);
+  }
+
+  /* ===== YEAR AT A GLANCE TABLE ===== */
+  .glance-section {
+    padding: 40px 20px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .comic-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 4px solid var(--black);
+    font-size: 0.85rem;
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+  .comic-table thead tr {
+    background: var(--red);
+  }
+
+  .comic-table th {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.15em;
+    padding: 14px 16px;
+    text-align: left;
+    color: var(--yellow);
+    border: 2px solid var(--black);
+    font-size: 0.85rem;
+    text-shadow: 1px 1px 0 var(--black);
+  }
+
+  .comic-table td {
+    padding: 12px 16px;
+    border: 2px solid var(--black);
+    color: var(--black);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+
+  .comic-table tr:nth-child(even) td { background: #FFF0F3; }
+  .comic-table tr:nth-child(odd) td { background: var(--white); }
+  .comic-table tr:hover td { background: #FFF5C0; }
+
+  .comic-table td:first-child {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .comic-table td:nth-child(2) {
+    font-family: 'Bangers', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    white-space: nowrap;
+  }
+
+  /* STAR EVENT TAG */
+  .star-event {
+    display: inline-block;
+    background: var(--yellow);
+    border: 2px solid var(--black);
+    font-family: 'Bangers', cursive;
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    margin-left: 6px;
+    box-shadow: 1px 1px 0 var(--black);
+    color: var(--black);
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing {
+    background: var(--red);
+    border-top: 6px solid var(--black);
+    padding: 70px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,215,0,0.1) 2px, transparent 2px);
+    background-size: 14px 14px;
+  }
+
+  .closing-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+  .closing h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--yellow);
+    -webkit-text-stroke: 3px var(--black);
+    text-shadow: 5px 5px 0 var(--black);
+    line-height: 0.9;
+    margin-bottom: 30px;
+    letter-spacing: 0.03em;
+  }
+
+  .closing p {
+    background: var(--white);
+    border: 4px solid var(--black);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--black);
+    box-shadow: 4px 4px 0 var(--black);
+    text-align: left;
+  }
+
+  .closing-sig {
+    background: var(--yellow);
+    border: 4px solid var(--black);
+    padding: 16px 30px;
+    display: inline-block;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.8rem;
+    color: var(--black);
+    box-shadow: 5px 5px 0 var(--black);
+    transform: rotate(-2deg);
+    margin-top: 20px;
+  }
+
+  /* PANEL CORNER decorations */
+  .corner-star {
+    position: absolute;
+    top: 8px; right: 10px;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Bangers', cursive;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px) rotate(-1deg); }
+    40% { transform: translateX(4px) rotate(1deg); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .wiggle { animation: wiggle 2s ease-in-out infinite; }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DIVIDER STRIPE */
+  .stripe-divider {
+    height: 20px;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--black),
+      var(--black) 10px,
+      var(--yellow) 10px,
+      var(--yellow) 20px
+    );
+    border-top: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+  }
+
+  @media (max-width: 640px) {
+    .panel-grid-3 { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body class="dots-bg">
+
+<!-- ===== HERO / COVER ===== -->
+<section class="hero">
+  <div class="comic-issue">⭐ 2026 SPECIAL EDITION ⭐</div>
+  
+  <div class="hero-logo">✦ COSMIC COMICS PRESENTS ✦</div>
+
+  <h1 class="hero-title">
+    THE STARS HAVE<br>SPOKEN FOR
+    <span class="name-line">EMILINA!</span>
+  </h1>
+
+  <div class="hero-sub">A SATURN RETURN IN ARIES — HONEY, HOLD ONTO YOUR PONYTAIL!</div>
+
+  <div class="speech-bubble">
+    <em>Oh my stars!</em> ♄ Saturn is headed straight for my 4th house and I feel like a whole new girl!! 🌟
+  </div>
+
+  <!-- Decorative SFX -->
+  <span class="sfx" style="color: var(--yellow); top: 8%; left: 5%; font-size: clamp(2rem,5vw,4rem); --rot: -12deg; --skew: -8deg; animation: wiggle 3s ease-in-out infinite;">ZAP!</span>
+  <span class="sfx" style="color: #FFB3C0; top: 15%; right: 4%; font-size: clamp(1.5rem,4vw,3rem); --rot: 8deg; --skew: 5deg;">WOW!</span>
+  <span class="sfx" style="color: var(--yellow); bottom: 12%; left: 3%; font-size: clamp(2rem,6vw,5rem); --rot: -6deg; --skew: -4deg;">POW!</span>
+  <span class="sfx" style="color: #FFB3C0; bottom: 18%; right: 5%; font-size: clamp(1.5rem,3vw,2.5rem); --rot: 10deg; --skew: 6deg;">EEKS!</span>
+</section>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <span class="nav-title">✦ EMILINA'S 2026 ✦</span>
+  <ul class="nav-links">
+    <li><a href="#saturn">Saturn Return</a></li>
+    <li><a href="#months">Month by Month</a></li>
+    <li><a href="#glance">Year at a Glance</a></li>
+    <li><a href="#closing">The End!</a></li>
+  </ul>
+</nav>
+
+<div class="stripe-divider"></div>
+
+<!-- ===== INTRO PANELS ===== -->
+<section class="comic-section fade-in" id="saturn">
+  <div class="panel-grid panel-grid-3" style="border:4px solid var(--black); box-shadow: 8px 8px 0 var(--black);">
+    
+    <div class="panel red-panel" style="grid-column: 1 / 3;">
+      <div class="caption-box">JANUARY 2026 — THE STORY SO FAR...</div>
+      <h2>A YEAR LIKE NO OTHER IS ABOUT TO BEGIN!!</h2>
+      <p>Emilina had no idea, as she flipped her calendar to 2026, that the cosmos had been waiting 29 and a half years to deliver this very moment. Three planets were converging in the most private corner of her chart. Saturn was sharpening its pencil. Neptune was already daydreaming. And the 4th house — the house of home, roots, and everything she'd been built from — was about to become the center of the whole dramatic, beautiful, terrifying universe.</p>
+      <br>
+      <p><strong style="font-family:'Comic Neue',cursive; font-style:italic;">"I can feel it,"</strong> she thought, staring at the stars above her hometown. <strong style="font-family:'Comic Neue',cursive; font-style:italic;">"Something BIG is coming."</strong></p>
+      <div class="corner-star">✦</div>
+    </div>
+
+    <div class="panel yellow-panel">
+      <div class="caption-box blue">KEY STATS!</div>
+      <h2 style="color:var(--black); text-shadow:2px 2px 0 rgba(0,0,0,0.2);">Her Chart Says...</h2>
+      <div style="margin-top:12px;">
+        <div style="background:var(--red); border:3px solid var(--black); padding:10px; margin-bottom:10px; box-shadow:2px 2px 0 var(--black);">
+          <span style="font-family:'Bangers',cursive; font-size:1.5rem; color:var(--yellow); -webkit-text-stroke:1px var(--black);">♄ SATURN</span>
+          <div style="font-size:0.85rem; color:var(--white); margin-top:4px;">15°42' Aries — Retrograde<br>4th House — Since Birth!</div>
+        </div>
+        <div style="background:var(--blue); border:3px solid var(--black); padding:10px; margin-bottom:10px; box-shadow:2px 2px 0 var(--black);">
+          <span style="font-family:'Bangers',cursive; font-size:1.5rem; color:var(--yellow); -webkit-text-stroke:1px var(--black);">♆ NEPTUNE</span>
+          <div style="font-size:0.85rem; color:var(--white); margin-top:4px;">Just entered Aries Jan 26!<br>First time in your 4th house!</div>
+        </div>
+        <div style="background:var(--orange); border:3px solid var(--black); padding:10px; box-shadow:2px 2px 0 var(--black);">
+          <span style="font-family:'Bangers',cursive; font-size:1.5rem; color:var(--white); -webkit-text-stroke:1px var(--black);">⚷ CHIRON</span>
+          <div style="font-size:0.85rem; color:var(--white); margin-top:4px;">22°–25° Aries<br>Healing your roots!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-wide">
+      <div class="caption-box">WHAT DOES IT ALL MEAN??</div>
+      <h2 style="color:var(--black); font-size:clamp(1.8rem,4vw,3rem);">THE SATURN RETURN — YOUR COSMIC COMING-OF-AGE!!</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:16px;">
+        <div>
+          <div style="background:var(--red); border:3px solid var(--black); padding:12px; box-shadow:3px 3px 0 var(--black); text-align:center; margin-bottom:10px;">
+            <span style="font-family:'Bangers',cursive; font-size:2rem; color:var(--yellow); display:block;">♄ SATURN</span>
+            <span style="font-size:0.8rem; color:var(--white);">RESTRUCTURES</span>
+          </div>
+          <p style="font-size:0.85rem;">Tears down what's flimsy. Builds what's real. Asks the hard questions about home, family, and what you've been avoiding.</p>
+        </div>
+        <div>
+          <div style="background:var(--blue); border:3px solid var(--black); padding:12px; box-shadow:3px 3px 0 var(--black); text-align:center; margin-bottom:10px;">
+            <span style="font-family:'Bangers',cursive; font-size:2rem; color:var(--yellow); display:block;">♆ NEPTUNE</span>
+            <span style="font-size:0.8rem; color:var(--white);">DISSOLVES</span>
+          </div>
+          <p style="font-size:0.85rem;">Melts the old dream of what home was supposed to look like, so the real, soulful version can take its place.</p>
+        </div>
+        <div>
+          <div style="background:var(--green); border:3px solid var(--black); padding:12px; box-shadow:3px 3px 0 var(--black); text-align:center; margin-bottom:10px;">
+            <span style="font-family:'Bangers',cursive; font-size:2rem; color:var(--yellow); display:block;">⚷ CHIRON</span>
+            <span style="font-size:0.8rem; color:var(--white);">HEALS</span>
+          </div>
+          <p style="font-size:0.85rem;">Tends to the ancestral wounds and old family patterns. The cracks in the walls that Saturn is now rebuilding.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SATURN RETURN HERO SECTION ===== -->
+<div class="stripe-divider"></div>
+<section class="saturn-section fade-in">
+  <div class="saturn-inner">
+
+    <div class="big-sfx-title">SATURN<br>RETURN!!</div>
+
+    <div class="thought-bubble" style="margin: 20px auto;">
+      <em>"Wait... Saturn hasn't changed a bit since I was born... but I certainly have. And now he's BACK!"</em>
+    </div>
+
+    <div style="text-align:center; margin: 20px 0;">
+      <div class="starburst wiggle" style="font-size:1.1rem; max-width:500px; margin:0 auto; border-radius:4px;">
+        Feb 15: Saturn enters Aries → Your return officially begins!<br>
+        Jul 26: Saturn retrogrades at 14°45' Aries — less than 1° away!!<br>
+        Dec 10: Saturn goes direct → Final approach to exact return in 2027!
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <span class="stat-val">15°42'</span>
+        <span class="stat-label">Natal Saturn — Aries</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">4th</span>
+        <span class="stat-label">House of the Return</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">29.5 yrs</span>
+        <span class="stat-label">Saturn's Cycle</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">3</span>
+        <span class="stat-label">Planets in 4th House!</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">~2027</span>
+        <span class="stat-label">Exact Return Perfects</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="stripe-divider"></div>
+
+<!-- ===== MONTHS ===== -->
+<section class="months-section fade-in" id="months">
+  <div class="section-banner">
+    <h2>THE TWELVE CHAPTERS OF YOUR YEAR!</h2>
+    <p>Click any month to read the full cosmic story, girlfriend! ★</p>
+  </div>
+
+  <div class="months-grid" id="monthsGrid"></div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ===== YEAR AT A GLANCE ===== -->
+<section class="glance-section fade-in" id="glance">
+  <div class="section-banner" style="background:var(--blue); transform:rotate(1deg);">
+    <h2>YEAR AT A GLANCE!</h2>
+    <p>All the major transits — laid out plain as a comic book page!</p>
+  </div>
+
+  <table class="comic-table">
+    <thead>
+      <tr>
+        <th>TRANSIT</th>
+        <th>WHEN?</th>
+        <th>WHAT IT MEANS FOR YOU!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Saturn Return (approach) <span class="star-event">BIG ONE</span></td>
+        <td>Feb 15 – Dec 31</td>
+        <td>Rebuilding home, family, emotional foundations. The whole year builds to the exact return in 2027!</td>
+      </tr>
+      <tr>
+        <td>Pluto ☐ Natal Sun</td>
+        <td>All Year</td>
+        <td>Deep identity transformation and power struggles. Shedding everything that isn't authentically YOU. Slow, grinding, and completely irreversible!</td>
+      </tr>
+      <tr>
+        <td>Saturn ☌ Neptune at 0° Aries <span class="star-event">RARE!</span></td>
+        <td>Feb 20</td>
+        <td>Once-every-36-years conjunction! Dream meets discipline in your 4th house. The seed of your true home is planted right here!</td>
+      </tr>
+      <tr>
+        <td>Neptune enters Aries (4th house)</td>
+        <td>Jan 26</td>
+        <td>The first time Neptune has been in your 4th house in your lifetime! Dissolving old concepts of home and family for decades to come.</td>
+      </tr>
+      <tr>
+        <td>Solar Eclipse in 2nd House</td>
+        <td>Feb 17</td>
+        <td>New chapter for money, resources, and self-worth! Your entire relationship to security is being reinvented!</td>
+      </tr>
+      <tr>
+        <td>Saturn retrogrades at 14°45' Aries <span class="star-event">OH WOW</span></td>
+        <td>Jul 26</td>
+        <td>Less than 1° from the exact return. The universe says "not yet" — but you can TASTE it. Internal work deepens.</td>
+      </tr>
+      <tr>
+        <td>New Moon on Natal North Node <span class="star-event">FATED</span></td>
+        <td>Sep 10</td>
+        <td>The most fated lunation of the year! The universe plants a seed directly on your soul's path. Don't miss this one!</td>
+      </tr>
+      <tr>
+        <td>Venus Rx over Natal Sun + Mercury</td>
+        <td>Oct 3 – Nov 13</td>
+        <td>40 days of reviewing love, values, and self-expression. Venus Cazimi on Oct 23rd lands almost exactly on your natal Sun — your most honest moment about love all year!</td>
+      </tr>
+      <tr>
+        <td>Jupiter through 8th House <span class="star-event">LUCKY!</span></td>
+        <td>Jun 30 – Dec 31+</td>
+        <td>Expansion through intimacy and shared resources! The universe is GENEROUS this year. Financial and emotional blessings are available if you're willing to receive them!</td>
+      </tr>
+      <tr>
+        <td>Saturn stations direct <span class="star-event">THE SHIFT</span></td>
+        <td>Dec 10</td>
+        <td>The great teacher turns forward at 7°55' Aries. The 5-month retrograde review is over. The final approach to your exact return in 2027 BEGINS NOW!</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ===== CLOSING ===== -->
+<section class="closing fade-in" id="closing">
+  <div class="closing-inner">
+
+    <h2>YOU ARE NOT<br>JUST BUILDING<br>A HOUSE!</h2>
+
+    <div class="speech-bubble" style="font-style:italic; max-width:500px; margin: 0 auto 40px; font-size:1rem; color:var(--black); font-family:'Comic Neue',cursive; font-weight:700;">
+      "You are becoming a home unto yourself, girlfriend!"
+    </div>
+
+    <p>Emilina — 2026 is the year the stakes get completely real. Pluto is stripping away everything that isn't authentically you. Neptune is dissolving the old dream of what home was supposed to look like. And Saturn, in all its serious, demanding, unglamorous glory, is asking you to do the hardest and most rewarding work of your entire life: lay a foundation that can hold the weight of your whole future.</p>
+
+    <p>You have the courage of Aries and the depth of Scorpio. You were literally built for this moment! The pressure building all year isn't punishment, sugar — it's compression. It's what turns coal into diamonds.</p>
+
+    <p>And Jupiter sits in your 8th house from June onward, winking and whispering that you are NOT alone in this. The resources exist. The love exists. The support is there if you are willing to receive it. By December, you will feel it — the shift from interior excavation to forward motion. Saturn turns direct, and the great teacher faces forward again. You are ready.</p>
+
+    <div class="burst wiggle" style="--rot: -3deg; display:inline-block; margin-top:16px; margin-bottom:8px; font-size:1.4rem; padding:12px 24px;">
+      THE EXACT RETURN PERFECTS IN 2027!<br>BUT THE REAL WORK? IT'S HAPPENING RIGHT NOW!! ★
+    </div>
+
+    <div class="closing-sig">With love & cosmic wisdom — Athena ✦</div>
+
+    <div style="margin-top:40px; font-family:'Bangers',cursive; font-size:0.75rem; letter-spacing:0.3em; color:rgba(255,255,255,0.5);">
+      ♄ SATURN RETURN 2026 ♄ ARIES 15°42' ♄ 4TH HOUSE ♄ COSMIC COMICS ♄
+    </div>
+
+  </div>
+</section>
+
+<script>
+const months = [
+  {
+    num: '01', name: 'January',
+    vibe: 'The calm before the cosmic storm!',
+    intensity: 55,
+    preview: 'All eyes on Emilina — the Sun, Mercury, Venus, AND Mars are all in her 1st house! She\'s gathering her strength, feeling the approach of something enormous. Neptune is the advance scout, arriving in Aries Jan 26th to prepare the 4th house.',
+    detail: `Saturn is finishing its last days in Pisces — your 3rd house. The return hasn't officially started, but you can feel the ground shifting. Neptune crossing into Aries on January 26th is the advance guard arriving before the main army!\n\nThe New Moon on January 18th at 28° Capricorn is remarkable — it falls conjunct your natal Neptune at 27°17' Capricorn in your 1st house. A moment of inspired new beginnings for your identity and self-image. Something dreamy and spiritual is being seeded in how you see yourself.\n\nThen January 27th: Mars conjuncts Pluto at 3°34' Aquarius, right on your natal Uranus at 4°48'. The material ground is crackling. Finances, values, everything structural about your outer life is vibrating with transformative energy!`,
+    events: [
+      { date: 'Jan 3', text: 'Full Moon in Cancer in your 7th — relationship dynamics bubble up' },
+      { date: 'Jan 18', text: 'New Moon conjuncts your natal Neptune — dreamy new identity seeds!' },
+      { date: 'Jan 26', text: 'Neptune enters Aries — your 4th house receives its very first visitor!' },
+      { date: 'Jan 27', text: 'Mars conjunct Pluto near your natal Uranus — financial ground cracks open!' },
+    ],
+    saturnCheck: 'Saturn at 26°–28° Pisces, still in your 3rd house. The return hasn\'t officially begun — but Neptune\'s arrival in Aries is the advance guard. The 4th house is being prepared, darling!'
+  },
+  {
+    num: '02', name: 'February',
+    vibe: 'THE RETURN BEGINS — hold onto your ponytail!!',
+    intensity: 95,
+    preview: 'February 15th: Saturn enters Aries. The Saturn return is LIVE. Then a Solar Eclipse in the 2nd house. THEN Saturn conjuncts Neptune at the very first degree of Aries. February is the detonator, the spark, the whole dang firework factory going off at once!',
+    detail: `February 15th: Saturn crosses 0° Aries — the Aries Point, the World Point, a degree of extraordinary personal significance. Your Saturn return is officially underway!!\n\nTwo days later, the Solar Eclipse at 28°49' Aquarius detonates in your 2nd house of money and self-worth. Pluto nearby is squaring your natal Sun. What you value, how you earn, what security means to you — it's all being blown open and rebuilt from scratch.\n\nThen February 20th: Saturn conjuncts Neptune at 0°45' Aries in your 4th house. This only happens every 36 years! The realist meets the dreamer at the doorstep of your home and family life. Old illusions about belonging dissolve. The dream of a true sanctuary is planted — and you can also see, with startling clarity, how much WORK it's going to take.\n\nMercury retrogrades on the 25th in your 3rd house. Your mind is catching up to what your soul already knows.`,
+    events: [
+      { date: 'Feb 15', text: '⭐ Saturn enters Aries — your Saturn return OFFICIALLY begins!!' },
+      { date: 'Feb 17', text: 'Solar Eclipse in your 2nd house — finances and self-worth transform!' },
+      { date: 'Feb 20', text: '⭐ Saturn conjunct Neptune at 0°45\' Aries — once in 36 years! In your 4th house!' },
+      { date: 'Feb 25', text: 'Mercury retrograde in your 3rd house — mind processes slowly but deeply' },
+    ],
+    saturnCheck: 'Saturn has just entered Aries at 0°–1°! The conjunction with Neptune at the very start sets the whole tone: this return is as much a spiritual journey as a practical one!'
+  },
+  {
+    num: '03', name: 'March',
+    vibe: 'Emotional clearing — shed what no longer fits!',
+    intensity: 68,
+    preview: 'A Total Lunar Eclipse in Virgo stirs deep beliefs. Jupiter stations direct in the 7th house. And a Saturn Cazimi gives a crystal-clear moment of knowing exactly what the work is. The universe hands Emilina a spotlight.',
+    detail: `The Total Lunar Eclipse on March 3rd at 12°53' Virgo is a South Node eclipse — a release. It activates your 9th house and the same sign as your natal Moon at 0°11' Virgo. Beliefs about what you "should" be doing, about your place in the world — they are being shed. LET. THEM. GO.\n\nVenus enters your 4th house on March 6th — a grace note! Even while the inner work is heavy, Venus whispers that you deserve beauty. Redecorate. Cook something wonderful. Let softness into your home.\n\nJupiter stations direct on March 11th at 15°05' Cancer in your 7th house. After months of retrograde reflection, your partnership energy starts moving forward again. The people in your life begin showing up more generously.\n\nThe Saturn Cazimi on March 25th at 4°43' Aries — the Sun conjuncts Saturn in your 4th house — is a SPOTLIGHT moment. Whatever clarity arrives on this day: write it down immediately. It is the exact truth of what needs to be done.`,
+    events: [
+      { date: 'Mar 3', text: 'Total Lunar Eclipse in Virgo — releasing old beliefs and worldviews' },
+      { date: 'Mar 6', text: 'Venus enters your 4th house — bring beauty into the home, you deserve it!' },
+      { date: 'Mar 11', text: 'Jupiter stations direct in your 7th — partnerships begin to open up!' },
+      { date: 'Mar 25', text: '⭐ Saturn Cazimi at 4°43\' Aries — clearest view of your work all year!' },
+    ],
+    saturnCheck: 'Saturn now at 3°–5° Aries. The Cazimi at 4°43\' is a powerful checkpoint — the exact nature of the work becomes crystal clear. The themes of home and family are crystallizing with every week!'
+  },
+  {
+    num: '04', name: 'April',
+    vibe: 'Action, confrontation, and taking the wheel!',
+    intensity: 88,
+    preview: 'Mars enters the 4th house. A potent New Moon in Aries. Then the Mars-Saturn conjunction — one of the year\'s most challenging transits. It\'s the universe\'s stress test. The structures worth keeping will survive it. The rest gets renovated.',
+    detail: `The Sun moved into Aries in late March, lighting up the 4th house and the Saturn return. April brings the fire!\n\nMars enters Aries on April 9th, joining Saturn and Neptune in the 4th house. THREE planets in the most foundational sector of the chart! An urgent need to ACT — to renovate, to set hard limits with family, to defend emotional space. Mars in Aries doesn't wait for anyone.\n\nThe New Moon in Aries on April 17th at 27°28' is the most powerful seed-planting moment of the year for the Saturn return. Set clear intentions about the home and family life you are actively choosing to create. This is not a passive new moon — it demands action.\n\nApril 19th: Mars conjuncts Saturn at 7°52' Aries. The irresistible force meets the immovable object! In the 4th house, this can feel like hitting a brick wall. A renovation snag, a family impasse, a moment of profound frustration where desire meets hard limitation. This is NOT the universe being cruel. It is asking: are you building for the long haul?`,
+    events: [
+      { date: 'Apr 9', text: 'Mars enters Aries — fire and urgency arrive in your 4th house!' },
+      { date: 'Apr 17', text: '⭐ New Moon in Aries — most potent intentions of the year for home/family!' },
+      { date: 'Apr 19', text: 'Mars conjunct Saturn at 7°52\' Aries — stress test! Be strategic, not impulsive.' },
+      { date: 'Apr 25', text: 'Uranus enters Gemini — daily routines and health begin to shift dramatically!' },
+    ],
+    saturnCheck: 'Saturn at 7°–8° Aries! The Mars conjunction at 7°52\' is the big stress test. Deep in the work now. Halfway to natal Saturn at 15°42\'!'
+  },
+  {
+    num: '05', name: 'May',
+    vibe: 'Deep truths bubble up — no more hiding!',
+    intensity: 72,
+    preview: 'A Full Moon lands directly on natal Mercury in Scorpio — revelations incoming! Pluto stations retrograde and the identity transformation turns inward. The creative 5th house energy starts offering some much-needed relief and joy.',
+    detail: `The Full Moon on May 1st at 11°20' Scorpio falls directly on natal Mercury at 10°03' Scorpio in the 11th house. This is the revelation lunation of the spring! Secrets surface. Realizations crystallize. Something that's needed to be said — or heard — will not stay quiet any longer. Trust everything that surfaces here.\n\nPluto stations retrograde on May 6th at 5°30' Aquarius. The intense external pressure of the identity transformation turns inward. The question Pluto is asking: Who are you becoming — and does your material world reflect that new person yet?\n\nThe New Moon in Taurus on May 16th is a genuine gift — 5th house energy of pleasure, creativity, and romance. After the relentless spring excavation, this is nourishment. Plant seeds for creative projects, for joy, for delight. The Saturn return work must be balanced with beauty or it will crush you.`,
+    events: [
+      { date: 'May 1', text: '⭐ Full Moon conjunct natal Mercury — revelations, secrets, necessary truths!' },
+      { date: 'May 6', text: 'Pluto stations retrograde — identity transformation turns inward for integration' },
+      { date: 'May 16', text: 'New Moon in Taurus in your 5th — creative and romantic new beginnings!' },
+    ],
+    saturnCheck: 'Saturn at 9°–11° Aries. Past the halfway point to natal Saturn at 15°42\'! The pressure builds steadily. Home and family themes are becoming truly impossible to sidestep!'
+  },
+  {
+    num: '06', name: 'June',
+    vibe: 'Jupiter moves in and CHANGES EVERYTHING!',
+    intensity: 65,
+    preview: 'Jupiter enters Leo and the 8th house on June 30th — blessings through intimacy and shared resources for the rest of the year! Mercury retrogrades in the partnership house. A Full Moon lights up the 1st house. Is the outside matching the inside?',
+    detail: `June offers a more communicative and social pace as the Sun enters Gemini and the 6th house.\n\nThe Full Moon in Capricorn on June 29th is in the 1st house — a mirror moment! Is the person being shown to the world aligned with who is being built from the inside out? A powerful self-assessment.\n\nMercury stations retrograde on June 29th at 26°15' Cancer in the 7th house of partnerships. Old relationship conversations return. Use this to clear up what wasn't resolved in the spring.\n\nBUT THE REAL HEADLINE: Jupiter enters Leo on June 30th and begins a year-long transit of the 8th house! The planet of expansion and abundance in the house of intimacy, transformation, and shared resources. The universe is becoming generous. Financial blessings, emotional depth, powerful intimate connections — all available! The resources needed for this deep work? Jupiter is bringing them.`,
+    events: [
+      { date: 'Jun 14', text: 'New Moon in Gemini in your 6th — fresh start for health and routines!' },
+      { date: 'Jun 29', text: 'Full Moon in your 1st house — check: does the outside match the new inside?' },
+      { date: 'Jun 29', text: 'Mercury retrograde in your 7th — relationship conversations need deep revisiting' },
+      { date: 'Jun 30', text: '⭐ Jupiter enters Leo in your 8th house — BLESSINGS through intimacy begin!' },
+    ],
+    saturnCheck: 'Saturn at 12°–14° Aries! Now approaching the critical zone near natal Saturn at 15°42\'! Major decisions about home and family feel imminent. You can almost see the summit!'
+  },
+  {
+    num: '07', name: 'July',
+    vibe: 'THE PRESSURE PEAKS — then the held breath...',
+    intensity: 100,
+    preview: 'Saturn stations retrograde at 14°45\' Aries — LESS THAN ONE DEGREE from the exact return. Neptune stations retrograde. The North Node shifts to the 2nd house. The Full Moon lands on natal Uranus. July is the crescendo of the entire year!',
+    detail: `This is the most pivotal month of the year. Everything builds to this point!\n\nNeptune stations retrograde on July 7th at 4°25' Aries, squaring the natal Sun at 2°20' Scorpio. It can feel like the ground beneath your identity is dissolving. You may not know who you are for a moment. That's not a crisis — it's the necessary softening before the rebuild.\n\nThen July 26th: Saturn stations retrograde at 14°45' Aries. Natal Saturn is at 15°42'. LESS THAN ONE DEGREE AWAY. So close you can almost taste it — and then the universe says: not yet. There is more inner work before this return completes. The retrograde begins. External pressure eases. Internal pressure intensifies.\n\nThe North Node enters Aquarius on July 27th. Your soul's growth for the next 18 months is tied to self-worth, values, and financial independence.\n\nThe Full Moon in Aquarius on July 29th conjuncts natal Uranus at 4°48' Aquarius. Something AWAKENS in how you think about money and what you truly value. Expect the unexpected!`,
+    events: [
+      { date: 'Jul 7', text: 'Neptune stations retrograde at 4°25\' Aries — identity softens (it\'s okay!!)' },
+      { date: 'Jul 14', text: 'New Moon in Cancer in your 7th — a new beginning in partnership' },
+      { date: 'Jul 26', text: '⭐⭐ Saturn retrogrades at 14°45\' Aries — less than 1° from natal Saturn! THE PEAK!' },
+      { date: 'Jul 27', text: 'North Node enters Aquarius, your 2nd — fate pivots to self-worth!' },
+      { date: 'Jul 29', text: 'Full Moon conjunct natal Uranus — AWAKENING around values and money!' },
+    ],
+    saturnCheck: '14°45\' Aries — the closest Saturn gets to your natal Saturn (15°42\') all year!! Saturn stations retrograde. The held breath. The internal work now goes VERY deep. The exact return awaits in 2027!'
+  },
+  {
+    num: '08', name: 'August',
+    vibe: 'Eclipse season — transformation is HERE!',
+    intensity: 80,
+    preview: 'Two powerful eclipses shake everything up. A Total Solar Eclipse in the 8th house trines natal Venus and Mars. A Partial Lunar Eclipse in the 3rd house trines the natal Sun. August is about the deepest transformation and the most beautiful release.',
+    detail: `Chiron stations retrograde on August 3rd at the edge of Taurus/Aries. The wounded healer turns inward — revisiting old wounds around home, family, and belonging. Saturn builds the new walls; Chiron tends the cracks in the old ones.\n\nThe Total Solar Eclipse on August 12th at 20°01' Leo EXPLODES in the 8th house. A new chapter for how you share yourself — emotionally, financially, intimately! The eclipse forms a beautiful trine to natal Venus at 18°59' Sagittarius and natal Mars at 19°13' Sagittarius. The transformation in your intimate life is empowering your spiritual depths. With Jupiter also in Leo, this eclipse could bring a significant financial opportunity, a deepening intimacy, or a major psychological breakthrough!\n\nThe Partial Lunar Eclipse on August 28th at 4°54' Pisces in your 3rd house trines your natal Sun. A healing, gentle release. Old mental patterns and ways of communicating that have kept you stuck dissolve like morning mist. A rare and welcome peace.`,
+    events: [
+      { date: 'Aug 3', text: 'Chiron stations retrograde — healing wounds around home and family' },
+      { date: 'Aug 12', text: '⭐ Total Solar Eclipse in Leo in your 8th — new chapter for intimacy and resources!' },
+      { date: 'Aug 28', text: 'Partial Lunar Eclipse in Pisces in your 3rd — mental release, gentle and healing!' },
+    ],
+    saturnCheck: 'Saturn retrograde at 13°–14° Aries. Moving slowly backward. External pressure eases slightly, but internal work deepens. Digesting the huge lessons of the first half of the year!'
+  },
+  {
+    num: '09', name: 'September',
+    vibe: 'DESTINY knocks — you better answer the door!',
+    intensity: 75,
+    preview: 'A New Moon falls almost exactly on the natal North Node — the most fated lunation of the entire year! A Full Moon illuminates the Saturn return house. September is harvest time, and the universe is handing out some seriously fated signposts.',
+    detail: `September is a month of profound alignment. The New Moon on September 10th at 18°25' Virgo lands within half a degree of natal North Node at 18°48' Virgo. This is the most fated lunation of 2026!\n\nThe North Node is your soul's direction — the path of greatest growth. A New Moon here is the universe planting a seed DIRECTLY in the soil of your life purpose. Something is beginning — related to learning, teaching, travel, philosophy, or spiritual practice — that is crucial for your soul's evolution.\n\nWhatever arises around September 10th: trust it. Follow it. It is NOT random. It has your name written on it in permanent marker!\n\nThe Full Moon in Aries on September 26th at 3°37' brings a culmination in the Saturn return house. Something peaks or turns. A decision about living situation, a confrontation, or an emotional breakthrough about what safety really means. With Saturn retrograde nearby: what have you learned? What are you ready to release?`,
+    events: [
+      { date: 'Sep 10', text: '⭐⭐ New Moon at 18°25\' Virgo lands on natal North Node — MOST FATED DAY of the year!' },
+      { date: 'Sep 10', text: 'Uranus stations retrograde — daily life changes pause for integration' },
+      { date: 'Sep 26', text: 'Full Moon in Aries in your 4th — culmination in the Saturn return house!' },
+      { date: 'Sep 28', text: 'Mars enters Leo in your 8th — passion activates Jupiter\'s blessings!' },
+    ],
+    saturnCheck: 'Saturn retrograde at 11°–12° Aries. The Full Moon in your 4th house on the 26th is a powerful mirror — what progress have you made? What work remains? Be honest with yourself!'
+  },
+  {
+    num: '10', name: 'October',
+    vibe: 'Love goes under the microscope — gulp!',
+    intensity: 78,
+    preview: 'Venus retrogrades over the natal Sun AND Mercury in Scorpio. The deepest 40-day review of love and self-worth of Emilina\'s life! Pluto stations direct and resumes its square. The heart is being asked the hardest questions.',
+    detail: `Venus stations retrograde on October 3rd at 8°29' Scorpio, beginning 40 days of reviewing relationships, desires, and deepest values. Over this retrograde, Venus will pass over natal Mercury at 10°03' Scorpio and natal Sun at 2°20' Scorpio. This is intensely, thoroughly, unavoidably personal.\n\nOld lovers may reappear. More importantly, old PATTERNS in how you love and how you allow yourself to be loved will surface. The question Venus is asking with relentless Scorpio intensity: What do you truly want? Not what's safe. Not what's convenient. What does your heart, at its most undefended depth, actually want?\n\nThe Venus Cazimi on October 23rd at 0°45' Scorpio — Venus conjuncts the Sun at the moment of greatest clarity during its retrograde — lands almost exactly on your natal Sun. A rare and beautiful gift. The deepest truth about what you love and value is illuminated from within. Journal, meditate, simply BE on this day.\n\nPluto stations direct on October 15th, resuming its powerful square to your natal Sun. The identity transformation turns outward again!`,
+    events: [
+      { date: 'Oct 3', text: 'Venus stations retrograde at 8°29\' Scorpio — 40-day love review begins!' },
+      { date: 'Oct 15', text: 'Pluto stations direct — identity transformation resumes manifesting externally!' },
+      { date: 'Oct 23', text: '⭐ Venus Cazimi at 0°45\' Scorpio conjunct your natal Sun — your most honest love moment!' },
+      { date: 'Oct 24', text: 'Mercury retrograde in Scorpio — deep mental review near your natal Mercury' },
+    ],
+    saturnCheck: 'Saturn retrograde at 9°–10° Aries. The Venus retrograde over your Sun and Mercury adds a deep relational layer to the Saturn return work. The foundation being built must be able to HOLD love!'
+  },
+  {
+    num: '11', name: 'November',
+    vibe: 'Happy Birthday — the NEW Emilina arrives!!',
+    intensity: 82,
+    preview: 'The Sun returns to Scorpio for the solar return! The New Moon in Scorpio is the annual power moment — but this year it\'s CHARGED with everything the year has built. Venus stations direct. Mars and Jupiter conjunct with a burst of passion and abundance. Hello, new self!',
+    detail: `Happy Solar Return, Emilina!! The New Moon in Scorpio on November 9th at 16°53' is your annual personal reset — but this year it carries EXTRAORDINARY weight.\n\nYou are not the same person who walked into 2026. The Pluto square has been stripping you bare. The Saturn return has been demanding you grow up in the ways that actually matter. The Neptune transit has been dissolving the self that no longer fits. This New Moon is asking: Who are you choosing to become from here? Set intentions that honor the person you've actually become.\n\nThe Mercury Cazimi on November 4th at 12°10' Scorpio falls close to natal Mercury — a moment of mental brilliance. A key insight or message arrives. Pay close attention!\n\nVenus stations direct on November 13th. After 40 days in the underworld of your own heart, you emerge knowing — really KNOWING — what you value. This clarity is a genuine gift.\n\nThe Mars-Jupiter conjunction on November 16th at 25°53' Leo in your 8th house is a burst of expansive, passionate energy! A windfall, a deepening, a breakthrough in your sense of personal power!`,
+    events: [
+      { date: 'Nov 4', text: 'Mercury Cazimi near natal Mercury — key insight or revelation arrives!' },
+      { date: 'Nov 9', text: '⭐ New Moon in Scorpio — your annual reset, charged with the full year\'s transformation!' },
+      { date: 'Nov 13', text: 'Venus stations direct — you know what you truly want now. TRUST it!!' },
+      { date: 'Nov 16', text: 'Mars conjunct Jupiter in your 8th — passion, abundance, and breakthrough energy!' },
+    ],
+    saturnCheck: 'Saturn retrograde at 8°–9° Aries. Slowing down, preparing to station direct in December! The internal review is concluding. You\'re being prepared for the final forward push. Almost there!!'
+  },
+  {
+    num: '12', name: 'December',
+    vibe: 'The teacher turns forward — you\'re READY!',
+    intensity: 60,
+    preview: 'Saturn stations direct on December 10th at 7°55\' Aries. THE RETROGRADE IS OVER. The final approach to the exact return in 2027 begins! A beautiful New Moon conjuncts natal Venus and Mars. The year closes with a tender Full Moon in the partnership house.',
+    detail: `The year closes with resolution and renewed purpose! The Sun is in Sagittarius — your 12th house — inviting deep reflection before the next cycle begins.\n\nThe New Moon in Sagittarius on December 8th at 16°56' falls conjunct natal Venus at 18°59' Sagittarius and natal Mars at 19°13' Sagittarius in your 12th house. Something old is being released — an old pattern of loving, an old way of pursuing what you want — and something new is being seeded in the quiet, hidden spaces of your soul. The 12th house at its most sacred: the place where endings become beginnings.\n\nDecember 10th: SATURN STATIONS DIRECT AT 7°55' ARIES!! The great teacher turns forward! You will feel a palpable shift from internal processing to external ACTION. The lessons of the past five months have been integrated. Saturn now begins its final approach to natal Saturn at 15°42' Aries — the exact return likely perfecting in early-to-mid 2027!\n\nNeptune stations direct on December 12th, retreating temporarily from Aries. A layer of 4th house intensity lifts. A moment of clarity, like fog clearing from a valley.\n\nThe Full Moon in Cancer on December 23rd — the final lunation of the year — falls in your 7th house. A tender, emotional release. Let go of relationship patterns that no longer serve the foundation you've been building all year. You are ready!`,
+    events: [
+      { date: 'Dec 8', text: 'New Moon conjunct natal Venus & Mars in 12th — releasing old patterns of love!' },
+      { date: 'Dec 10', text: '⭐⭐ Saturn stations DIRECT at 7°55\' Aries — the teacher turns forward! FINAL APPROACH!' },
+      { date: 'Dec 12', text: 'Neptune stations direct in Pisces — clarity returns, a layer of fog lifts!' },
+      { date: 'Dec 23', text: 'Full Moon in Cancer in your 7th — tender year-end release in partnerships!' },
+    ],
+    saturnCheck: 'Saturn direct at 7°55\' Aries and MOVING FORWARD!! The exact return at 15°42\' is on the horizon. You have done extraordinary work this year. The approach phase is COMPLETE. 2027 brings the culmination!!'
+  },
+];
+
+const monthsGrid = document.getElementById('monthsGrid');
+months.forEach((m, i) => {
+  const card = document.createElement('div');
+  card.className = 'month-card';
+
+  const eventItems = m.events.map(e => `
+    <li>
+      <span class="event-date-tag">${e.date}</span>
+      <span>${e.text}</span>
+    </li>
+  `).join('');
+
+  const detailParas = m.detail.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+  card.innerHTML = `
+    <div class="month-header">
+      <div class="month-num-tag">✦ CHAPTER ${m.num}</div>
+      <div class="month-name">${m.name}</div>
+      <div class="month-vibe">${m.vibe}</div>
+    </div>
+    <div class="month-body">
+      <div class="power-meter">
+        <span class="power-label">INTENSITY!</span>
+        <div class="power-track"><div class="power-fill" style="--pct:0%; width:0%" data-pct="${m.intensity}%"></div></div>
+        <span class="power-num">${m.intensity}</span>
+      </div>
+      <div class="month-preview">${m.preview}</div>
+    </div>
+    <div class="read-more-hint">▼ CLICK TO READ MORE ▼</div>
+    <div class="month-detail">
+      ${detailParas}
+      <ul class="event-list">${eventItems}</ul>
+      <div class="saturn-check-box">
+        <strong>♄ SATURN RETURN CHECK-IN!</strong>
+        ${m.saturnCheck}
+      </div>
+    </div>
+  `;
+
+  card.addEventListener('click', () => {
+    const wasActive = card.classList.contains('active');
+    document.querySelectorAll('.month-card').forEach(c => c.classList.remove('active'));
+    if (!wasActive) {
+      card.classList.add('active');
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+
+  monthsGrid.appendChild(card);
+});
+
+// Intersection Observer for fade-ins
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Animate power bars on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.power-fill').forEach(fill => {
+        fill.style.width = fill.getAttribute('data-pct');
+      });
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.month-card').forEach(card => barObserver.observe(card));
+</script>
+</body>
+</html>
